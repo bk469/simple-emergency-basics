@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3efe4"/>
+  <rect x="820" y="90" width="280" height="450" rx="10" fill="#1f3027"/>
+  <g fill="none" stroke="#285d45" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M85 120 145 68l60 52"/>
+    <path d="M103 112v65h84v-65"/>
+    <path d="M145 114c-13 18-21 29-21 39a21 21 0 0 0 42 0c0-10-8-21-21-39Z"/>
+  </g>
+  <text x="85" y="260" fill="#24271e" font-family="Georgia,serif" font-size="76">Simple Emergency</text>
+  <text x="85" y="350" fill="#285d45" font-family="Georgia,serif" font-size="76">&amp; Survival Basics</text>
+  <text x="88" y="420" fill="#626458" font-family="Arial,sans-serif" font-size="28">Practical knowledge for difficult times.</text>
+  <text x="860" y="235" fill="#829189" font-family="Georgia,serif" font-size="150">12</text>
+  <text x="860" y="290" fill="#f4f0e5" font-family="Arial,sans-serif" font-size="22" letter-spacing="4">ESSENTIAL SKILLS</text>
+  <text x="860" y="370" fill="#f4f0e5" font-family="Arial,sans-serif" font-size="23">Learn the basics.</text>
+  <text x="860" y="415" fill="#f4f0e5" font-family="Arial,sans-serif" font-size="23">Keep useful supplies.</text>
+  <text x="860" y="460" fill="#f4f0e5" font-family="Arial,sans-serif" font-size="23">Practice what you learn.</text>
+</svg>
