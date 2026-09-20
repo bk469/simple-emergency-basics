@@ -716,7 +716,8 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .menu-close { width: 40px; height: 40px; display: grid; place-items: center; border-radius: var(--radius-full); }
 .menu-close:hover { background: color-mix(in oklab, var(--color-dark-panel-text) 12%, transparent); }
 .menu-close svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-.simple-menu ul { display: flex; flex-direction: column; gap: var(--space-1); }
+.simple-menu ul { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.simple-menu li { list-style: none; }
 .simple-menu a {
   display: flex; align-items: center; gap: var(--space-4);
   min-height: 52px; padding: var(--space-2) var(--space-3);
