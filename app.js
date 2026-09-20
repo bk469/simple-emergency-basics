@@ -339,3 +339,45 @@
     });
   }
 })();
+
+// Simple slide-in menu (Stage 1 redesign)
+(function () {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const drawer = document.querySelector("[data-simple-menu]");
+  const overlay = document.querySelector("[data-menu-overlay]");
+  const closeBtn = document.querySelector("[data-menu-close]");
+  if (!toggle || !drawer || !overlay) return;
+
+  function openMenu() {
+    drawer.hidden = false;
+    overlay.hidden = false;
+    requestAnimationFrame(function () {
+      drawer.classList.add("is-open");
+      overlay.classList.add("is-open");
+    });
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    drawer.classList.remove("is-open");
+    overlay.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    window.setTimeout(function () {
+      drawer.hidden = true;
+      overlay.hidden = true;
+    }, 220);
+  }
+
+  toggle.addEventListener("click", function () {
+    if (drawer.classList.contains("is-open")) closeMenu();
+    else openMenu();
+  });
+  overlay.addEventListener("click", closeMenu);
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+  drawer.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+})();

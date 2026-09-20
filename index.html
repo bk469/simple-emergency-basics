@@ -31,6 +31,9 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="simple-menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
     <a class="brand" href="#top" aria-label="Simple Emergency and Survival Basics home">
       <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="Shelter and water symbol">
         <path d="M5 20 20 7l15 13" />
@@ -51,6 +54,26 @@
     </button>
   </header>
 
+  <div class="menu-overlay" data-menu-overlay hidden></div>
+  <nav class="simple-menu" id="simple-menu" data-simple-menu aria-label="Simple menu" hidden>
+    <div class="simple-menu-head">
+      <span>Menu</span>
+      <button class="menu-close" type="button" data-menu-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <ul>
+      <li><a href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7M6 10v9h12v-9"/></svg>Home</a></li>
+      <li><a href="#skills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16l-7-4-7 4Z"/></svg>12 Topics</a></li>
+      <li><a href="#help-now"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 14.5 9 22 9.5 16.5 14l2 7-6.5-4-6.5 4 2-7L2 9.5 9.5 9Z"/></svg>Quick Start</a></li>
+      <li><a href="./food-plan.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M17 3c-2 2-2 5-2 8v10"/></svg>30-Day Food Plan</a></li>
+      <li><a href="./complete-guide.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18h12v3H6zM4 9h16v7H4z"/></svg>Print Guides</a></li>
+      <li><a href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>About This Project</a></li>
+      <li><a href="#priorities" data-priorities-link><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 8v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/></svg>Emergency Priorities</a></li>
+    </ul>
+    <p class="simple-menu-quote">“Be Prepared. Be Capable. Be Calmer.”</p>
+  </nav>
+
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-copy">
@@ -62,12 +85,35 @@
           <p>This app will not help if the web goes down and you have not saved it. Download a copy to your device and print the guides you may need. This gives you long-term access to these important reminders.</p>
           <a href="./complete-guide.html">Print or download the complete guide <span aria-hidden="true">→</span></a>
         </aside>
-          <div class="hero-actions">
-            <a class="button emergency-button" href="#help-now">Help Me Right Now</a>
-            <a class="button primary" href="#skills">Explore the 12 skills</a>
-            <a class="text-link" href="#priorities" data-priorities-link>See emergency priorities <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="./complete-guide.html">Print or download all 12 guides <span aria-hidden="true">→</span></a>
-          </div>
+        <a class="button emergency-button home-emergency-link" href="#help-now">Help Me Right Now</a>
+        <nav class="home-menu" aria-label="Main sections">
+          <a class="home-tile" href="#skills">
+            <span class="home-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16l-7-4-7 4Z"/></svg></span>
+            <span class="home-tile-label">12 Essential Topics</span>
+            <span class="home-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="home-tile" href="#help-now">
+            <span class="home-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 14.5 9 22 9.5 16.5 14l2 7-6.5-4-6.5 4 2-7L2 9.5 9.5 9Z"/></svg></span>
+            <span class="home-tile-label">Quick Start <small>(Top basics)</small></span>
+            <span class="home-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="home-tile" href="./food-plan.html">
+            <span class="home-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M17 3c-2 2-2 5-2 8v10"/></svg></span>
+            <span class="home-tile-label">30-Day Food Plan</span>
+            <span class="home-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="home-tile" href="./complete-guide.html">
+            <span class="home-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18h12v3H6zM4 9h16v7H4z"/></svg></span>
+            <span class="home-tile-label">Print Guides</span>
+            <span class="home-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="home-tile" href="#about">
+            <span class="home-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span>
+            <span class="home-tile-label">About This Project</span>
+            <span class="home-tile-arrow" aria-hidden="true">→</span>
+          </a>
+        </nav>
+        <p class="home-tagline">Be Prepared &middot; Be Capable &middot; Be Calmer</p>
       </div>
       <aside class="hero-fieldnote" aria-label="Core preparedness idea">
         <span class="fieldnote-number">12</span>
@@ -191,7 +237,7 @@
       <p class="help-now-note"><strong>Immediate danger:</strong> Call 911 or your local emergency service when available. This quick guide does not replace professional emergency instructions.</p>
     </section>
 
-    <section class="intro section-narrow" aria-labelledby="intro-title">
+    <section class="intro section-narrow" id="about" aria-labelledby="intro-title">
       <p class="section-kicker">Why this guide exists</p>
       <h2 id="intro-title">There is no perfect plan for every emergency.</h2>
       <div class="intro-columns">
