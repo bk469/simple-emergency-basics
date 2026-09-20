@@ -381,3 +381,30 @@
     if (event.key === "Escape") closeMenu();
   });
 })();
+
+// Smart back link on the 30-Day Food Plan page: defaults to Home, switches
+// to the Food guide only when the visitor actually arrived from there.
+(function () {
+  if (!document.body.classList.contains("food-plan-page")) return;
+  const links = document.querySelectorAll("[data-smart-back]");
+  if (!links.length) return;
+
+  let cameFromFoodGuide = false;
+  try {
+    if (document.referrer) {
+      const refPath = new URL(document.referrer).pathname;
+      cameFromFoodGuide = /\/food\.html$/.test(refPath);
+    }
+  } catch (e) {
+    cameFromFoodGuide = false;
+  }
+
+  if (!cameFromFoodGuide) return;
+
+  links.forEach(function (link) {
+    link.href = "./food.html";
+    link.textContent = link.getAttribute("data-smart-back") === "top"
+      ? "\u2190 Back to the Food guide"
+      : "Food guide";
+  });
+})();
