@@ -860,6 +860,47 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
   .mode-block { text-align: center; }
 }
 
+/* Compact phone layout: the whole first menu (title + both mode cards) must be
+   visible without scrolling on a phone screen. Decorative elements (the
+   illustration) are hidden here; everything a person needs to act on stays. */
+@media (max-width: 600px) {
+  .hero-simple { padding-block: var(--space-2) var(--space-6); }
+  .hero-simple h1 {
+    font-size: clamp(1.3rem, 1rem + 3vw, 1.7rem);
+    line-height: 1.05;
+    margin-top: var(--space-1);
+  }
+  .hero-tagline {
+    font-size: var(--text-xs);
+    margin-top: 2px;
+    padding-bottom: var(--space-1);
+    border-bottom-width: 2px;
+  }
+  .mode-block { margin-top: var(--space-3); padding: var(--space-3); border-radius: var(--radius-lg); }
+  .mode-kicker { font-size: var(--text-base); font-weight: 800; }
+  .mode-sub { font-size: var(--text-xs); margin-top: 2px; }
+  .mode-emergency .home-actions,
+  .mode-emergency > .home-action { margin-top: var(--space-2); }
+  .home-actions { margin-top: var(--space-2); gap: 6px; }
+  .home-action {
+    min-height: 46px; padding: var(--space-1) var(--space-3); gap: var(--space-2);
+    border-radius: var(--radius-md);
+  }
+  .home-action-icon { width: 20px; height: 20px; }
+  .home-action-icon svg { width: 19px; height: 19px; }
+  .home-action-icon.is-badge { width: 26px; height: 26px; }
+  .home-action-icon.is-badge svg { width: 16px; height: 16px; }
+  .home-action-label { font-size: var(--text-xs); letter-spacing: .01em; line-height: 1.15; }
+  .home-action-chevron { width: 16px; height: 16px; }
+  .emergency-caption { display: none; }
+  .home-action-about { margin-top: 2px; min-height: 40px; padding: 6px var(--space-3); }
+  .home-action-about .home-action-icon { width: 22px; height: 22px; }
+  .home-action-about .home-action-icon svg { width: 13px; height: 13px; }
+  .home-illustration { display: none; }
+  .home-tagline { margin-top: var(--space-3); font-size: var(--text-xs); padding-bottom: var(--space-1); }
+  .home-911-note { margin-top: var(--space-1); font-size: var(--text-xs); }
+}
+
 /* About section: absorbs the former "how to use" and "principle" sections */
 .about-more { margin-top: var(--space-12); padding-top: var(--space-10); border-top: 1px solid var(--color-border); }
 .about-more h3 { margin-top: var(--space-10); font-size: var(--text-lg); }
