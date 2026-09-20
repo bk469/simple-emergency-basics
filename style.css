@@ -728,13 +728,36 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .simple-menu a svg { width: 22px; height: 22px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .simple-menu-quote { margin-top: auto; padding-top: var(--space-6); font-style: italic; color: color-mix(in oklab, var(--color-dark-panel-text) 75%, transparent); font-size: var(--text-sm); }
 
-/* Simplified home screen: four large, calm choices + one small About link */
+/* Simplified home screen: two clearly separated modes (Emergency / Prepare) */
 .hero-simple { min-height: 0; padding-block: clamp(var(--space-10), 6vw, var(--space-16)); }
 .hero-simple .hero-copy { max-width: 640px; margin-inline: auto; text-align: center; }
 .hero-simple h1 { max-width: none; margin-inline: auto; }
 .hero-tagline { max-width: 44ch; margin: var(--space-4) auto 0; color: var(--color-muted); font-size: var(--text-lg); }
 
-.home-actions { margin-top: var(--space-10); display: flex; flex-direction: column; gap: var(--space-4); text-align: left; }
+.mode-block {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: left;
+}
+.mode-kicker {
+  margin: 0; font-weight: 700; font-size: var(--text-sm);
+  text-transform: uppercase; letter-spacing: .06em; color: var(--color-muted);
+}
+.mode-sub { margin: 2px 0 0; color: var(--color-text); font-size: var(--text-base); }
+
+.mode-emergency {
+  border-color: color-mix(in oklab, var(--color-warning) 40%, var(--color-border));
+  background: color-mix(in oklab, var(--color-warning) 7%, var(--color-surface));
+}
+.mode-emergency .mode-kicker { color: var(--color-warning); }
+.mode-prepare { margin-top: var(--space-6); }
+
+.home-actions { margin-top: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); }
+.mode-emergency .home-actions,
+.mode-emergency > .home-action { margin-top: var(--space-5); }
 .home-action {
   display: flex; align-items: center; gap: var(--space-4);
   min-height: 76px; padding: var(--space-5) var(--space-6);
@@ -755,22 +778,27 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .home-action-label { font-weight: 700; font-size: var(--text-lg); letter-spacing: .01em; }
 .home-action-sub { font-size: var(--text-sm); color: var(--color-muted); }
 
-.home-action-primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
-.home-action-primary .home-action-icon { background: rgb(255 255 255 / .18); color: #fff; }
-.home-action-primary .home-action-sub { color: rgb(255 255 255 / .8); }
-.home-action-primary:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+.home-action-emergency { background: var(--color-warning); border-color: var(--color-warning); color: #fff; width: 100%; }
+.home-action-emergency .home-action-icon { background: rgb(255 255 255 / .2); color: #fff; }
+.home-action-emergency .home-action-sub { color: rgb(255 255 255 / .85); }
+.home-action-emergency:hover { background: color-mix(in oklab, var(--color-warning) 82%, #000); border-color: color-mix(in oklab, var(--color-warning) 82%, #000); }
 
 .home-action-about {
-  display: inline-flex; margin-top: var(--space-8);
-  min-height: 44px; align-items: center; color: var(--color-accent); font-weight: 600;
-  text-underline-offset: 4px; text-decoration: underline;
+  display: inline-flex; margin-top: var(--space-6);
+  min-height: 44px; align-items: center; justify-content: center;
+  width: 100%; padding: var(--space-3) var(--space-5);
+  border: 2px solid var(--color-border); border-radius: var(--radius-lg);
+  color: var(--color-text); font-weight: 600; text-decoration: none;
 }
-.home-tagline { margin-top: var(--space-4); text-align: center; font-weight: 700; color: var(--color-accent); letter-spacing: .04em; }
+.home-action-about:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.home-tagline { margin-top: var(--space-8); text-align: center; font-weight: 700; color: var(--color-accent); letter-spacing: .04em; }
+.home-911-note { margin-top: var(--space-2); text-align: center; color: var(--color-muted); font-size: var(--text-sm); }
 
 @media (min-width: 720px) {
   .hero-simple .hero-copy { text-align: center; }
-  .home-actions { text-align: left; }
-  .home-action-about { margin-inline: auto; }
+  .mode-block { text-align: left; }
+  .home-action-about { width: auto; margin-inline: auto; }
 }
 
 /* About section: absorbs the former "how to use" and "principle" sections */
