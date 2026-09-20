@@ -802,3 +802,22 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .topic-label { flex: 1; font-weight: 700; font-size: var(--text-base); }
 .topic-chevron { flex-shrink: 0; color: var(--color-accent); font-weight: 700; font-size: 1.4rem; line-height: 1; }
 .topics-footnote { margin-top: var(--space-6); text-align: center; font-weight: 700; color: var(--color-accent); letter-spacing: .02em; }
+
+/* ===== Stage 3: topic-page section menu (Key Points / Steps / Supplies / Low-Cost / Resources) ===== */
+.section-menu {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  margin-top: var(--space-8); margin-bottom: var(--space-10);
+}
+.section-menu-row {
+  display: flex; align-items: center; gap: var(--space-4);
+  min-height: 60px; padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none; color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.section-menu-row:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.section-menu-icon { flex-shrink: 0; font-size: 1.4rem; line-height: 1; width: 28px; text-align: center; }
+.section-menu-label { flex: 1; font-weight: 700; font-size: var(--text-base); }
