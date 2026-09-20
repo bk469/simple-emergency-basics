@@ -767,3 +767,38 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .home-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .home-hero-credit { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--color-muted); text-align: right; }
 .home-hero-credit a { color: inherit; }
+
+/* ===== Stage 2: 12 Essential Topics — flat list matching mockup ===== */
+.topics-list { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
+.topic-row {
+  display: flex; align-items: center; gap: var(--space-4);
+  min-height: 64px; padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none; color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.topic-row:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.topic-number {
+  flex-shrink: 0; width: 32px; height: 32px; display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  color: #fff; font-weight: 700; font-size: var(--text-sm);
+}
+.topic-num-1 { background: #3B9FE0; }
+.topic-num-2 { background: #5FA84C; }
+.topic-num-3 { background: #E0762E; }
+.topic-num-4 { background: #D6A429; }
+.topic-num-5 { background: #6BAF3E; }
+.topic-num-6 { background: #4C8C4A; }
+.topic-num-7 { background: #3B8FBF; }
+.topic-num-8 { background: #C0392B; }
+.topic-num-9 { background: #5A5A52; }
+.topic-num-10 { background: #D6A429; }
+.topic-num-11 { background: #7B57A6; }
+.topic-num-12 { background: #2F6B57; }
+.topic-emoji { flex-shrink: 0; font-size: 1.5rem; line-height: 1; width: 28px; text-align: center; }
+.topic-label { flex: 1; font-weight: 700; font-size: var(--text-base); }
+.topic-chevron { flex-shrink: 0; color: var(--color-accent); font-weight: 700; font-size: 1.4rem; line-height: 1; }
+.topics-footnote { margin-top: var(--space-6); text-align: center; font-weight: 700; color: var(--color-accent); letter-spacing: .02em; }
