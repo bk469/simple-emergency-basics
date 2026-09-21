@@ -884,9 +884,9 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
   .mode-sub { font-size: var(--text-xs); margin-top: 2px; }
   .mode-emergency .home-actions,
   .mode-emergency > .home-action { margin-top: var(--space-2); }
-  .home-actions { margin-top: var(--space-2); gap: 6px; }
+  .home-actions { margin-top: var(--space-2); gap: 5px; }
   .home-action {
-    min-height: 46px; padding: var(--space-1) var(--space-3); gap: var(--space-2);
+    min-height: 44px; padding: 6px var(--space-3); gap: var(--space-2);
     border-radius: var(--radius-md);
   }
   .home-action-icon { width: 20px; height: 20px; }
