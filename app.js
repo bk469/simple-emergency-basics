@@ -3,8 +3,8 @@
   const themeToggle = document.querySelector("[data-theme-toggle]");
   const guides = [
     { file: "water.html", title: "Water", summary: "Find, collect, treat, store, and ration safe drinking water." },
-    { file: "fire.html", title: "Fire & Heat", summary: "Create heat and cooking fire safely while preventing fire and carbon-monoxide danger." },
     { file: "shelter.html", title: "Shelter", summary: "Stay dry, choose a safe space, conserve warmth, and know when to leave." },
+    { file: "fire.html", title: "Fire & Heat", summary: "Create heat and cooking fire safely while preventing fire and carbon-monoxide danger." },
     { file: "food.html", title: "Food", summary: "Store familiar food, conserve fuel and water, rotate supplies, and cook simply." },
     { file: "sprouting.html", title: "Sprouting", summary: "Turn stored seed into fresh food with clean water, drainage, and careful hygiene." },
     { file: "land.html", title: "Food From the Land", summary: "Learn local edible plants, avoid dangerous look-alikes, and harvest responsibly." },
@@ -145,6 +145,95 @@
     layout.insertBefore(details, content);
   }
 
+  var VISITED_KEY = "ebVisitedTopics";
+
+  function readVisitedTopics() {
+    try {
+      var raw = window.localStorage.getItem(VISITED_KEY);
+      var parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function markTopicVisited(file) {
+    if (!file || !guides.some(function (g) { return g.file === file; })) return;
+    try {
+      var visited = readVisitedTopics();
+      if (visited[file]) return;
+      visited[file] = true;
+      window.localStorage.setItem(VISITED_KEY, JSON.stringify(visited));
+    } catch (err) {
+      /* localStorage unavailable (private browsing, etc.) - skip silently */
+    }
+  }
+
+  function applyTopicsProgress() {
+    var list = document.querySelector(".topics-list");
+    if (!list) return;
+    var visited = readVisitedTopics();
+    var rows = list.querySelectorAll(".topic-row");
+    var visitedCount = 0;
+    rows.forEach(function (row) {
+      var href = row.getAttribute("href") || "";
+      var file = href.replace("./", "");
+      if (visited[file]) {
+        visitedCount += 1;
+        row.classList.add("is-visited");
+        var chevron = row.querySelector(".topic-chevron");
+        if (chevron) chevron.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" class="topic-check"><path d="M5 13l4 4L19 7"/></svg>';
+      }
+    });
+    var progress = document.querySelector("[data-topics-progress]");
+    if (!progress) {
+      progress = document.createElement("p");
+      progress.className = "topics-progress";
+      progress.setAttribute("data-topics-progress", "");
+      list.parentNode.insertBefore(progress, list);
+    }
+    progress.textContent = visitedCount === 0
+      ? "You haven't opened any of the 12 yet \u2014 even a quick skim helps."
+      : visitedCount >= rows.length
+        ? "You've opened all " + rows.length + " \u2014 nice work."
+        : "You've opened " + visitedCount + " of " + rows.length + " so far.";
+  }
+
+  applyTopicsProgress();
+
+  function createFloatingBackButton() {
+    const link = document.createElement("button");
+    link.type = "button";
+    link.className = "floating-back";
+    link.setAttribute("aria-label", "Go back to the previous page");
+    link.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>' +
+      "<span>Back</span>";
+    link.addEventListener("click", function () {
+      if (document.referrer && window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "./index.html";
+      }
+    });
+    document.body.appendChild(link);
+    let ticking = false;
+    function updateVisibility() {
+      const shouldShow = window.scrollY > 320;
+      link.classList.toggle("is-visible", shouldShow);
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateVisibility);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateVisibility();
+  }
+
+  createFloatingBackButton();
+
   function createGuideSequence() {
     const actions = document.querySelector(".guide-actions");
     if (!actions) return;
@@ -158,12 +247,13 @@
     const next = index < guides.length - 1 ? guides[index + 1] : null;
     nav.innerHTML =
       (previous
-        ? '<a href="./' + previous.file + '"><span>Previous</span><strong>← ' + previous.title + '</strong></a>'
-        : '<a href="./index.html#skills"><span>Previous</span><strong>← All skills</strong></a>') +
+        ? '<a href="./' + previous.file + '"><span>Previous · ' + index + ' of 12</span><strong>← ' + previous.title + '</strong></a>'
+        : '<a href="./topics.html#skills"><span>Previous</span><strong>← All 12 skills</strong></a>') +
       (next
-        ? '<a href="./' + next.file + '"><span>Next</span><strong>' + next.title + ' →</strong></a>'
-        : '<a href="./index.html#skills"><span>Complete</span><strong>All 12 skills →</strong></a>');
+        ? '<a href="./' + next.file + '"><span>Next · ' + (index + 2) + ' of 12</span><strong>' + next.title + ' →</strong></a>'
+        : '<a href="./topics.html#skills"><span>Complete!</span><strong>All 12 skills →</strong></a>');
     actions.parentNode.insertBefore(nav, actions);
+    markTopicVisited(current);
   }
 
   createSearch();
