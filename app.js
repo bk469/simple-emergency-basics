@@ -218,9 +218,22 @@
     });
     document.body.appendChild(link);
     let ticking = false;
+    let idleTimer = null;
+    let hasFocus = false;
+    function hideSoon() {
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(function () {
+        if (!hasFocus) link.classList.remove("is-visible");
+      }, 1500);
+    }
     function updateVisibility() {
-      const shouldShow = window.scrollY > 320;
-      link.classList.toggle("is-visible", shouldShow);
+      if (window.scrollY > 320) {
+        link.classList.add("is-visible");
+        hideSoon();
+      } else {
+        link.classList.remove("is-visible");
+        if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+      }
       ticking = false;
     }
     window.addEventListener("scroll", function () {
@@ -229,6 +242,15 @@
         ticking = true;
       }
     }, { passive: true });
+    link.addEventListener("focus", function () {
+      hasFocus = true;
+      link.classList.add("is-visible");
+      if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+    });
+    link.addEventListener("blur", function () {
+      hasFocus = false;
+      updateVisibility();
+    });
     updateVisibility();
   }
 
