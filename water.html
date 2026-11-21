@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,600&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="./style.css?v=20260924-priolinks2">
-  <script src="./app.js?v=20260924-priolinks2" defer></script>
+  <link rel="stylesheet" href="./style.css?v=20260924-stepmore2">
+  <script src="./app.js?v=20260924-stepmore2" defer></script>
 
   <!-- Shared public and install metadata -->
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" data-site-metadata>
@@ -68,9 +68,9 @@
         <h2 id="right-now">If you need water right now</h2>
         <ol class="action-steps">
           <li><span>1</span><p>Use stored or bottled drinking water first.</p></li>
-          <li><span>2</span><p>If the water may contain germs, boil it.</p></li>
-          <li><span>3</span><p>If you cannot boil it, use an approved disinfection method.</p></li>
-          <li><span>4</span><p>If you suspect fuel, chemicals, or other toxic contamination, find another source.</p></li>
+          <li><span>2</span><div><p>If the water may contain germs, boil it.</p><a class="step-more" href="#boil-water">More detail: How to boil water <i aria-hidden="true">&rsaquo;</i></a></div></li>
+          <li><span>3</span><div><p>If you cannot boil it, use an approved disinfection method.</p><a class="step-more" href="#bleach-method">More detail: Bleach method, step by step <i aria-hidden="true">&rsaquo;</i></a></div></li>
+          <li><span>4</span><div><p>If you suspect fuel, chemicals, or other toxic contamination, find another source.</p><a class="step-more" href="#unsafe">More detail: When water cannot be made safe <i aria-hidden="true">&rsaquo;</i></a></div></li>
         </ol>
         <aside class="critical-note"><strong>Important</strong><p>Boiling kills germs. It does not remove most chemicals.</p></aside>
       </section>
@@ -113,7 +113,7 @@
           <section id="steps">
             <p class="section-kicker">Two dependable methods</p>
             <h2>Step-by-Step Instructions</h2>
-            <h3>Boil water (preferred method)</h3>
+            <h3 id="boil-water">Boil water (preferred method)</h3>
             <p>Boiling is the simplest dependable method for killing most disease-causing germs.</p>
             <ol class="instruction-list">
               <li><span>Step 1</span><p>If the water is cloudy, let sediment settle or pass the water through a clean cloth or coffee filter.</p></li>
@@ -132,7 +132,7 @@
               </div>
             </figure>
 
-            <h3>If you cannot boil: bleach disinfection (backup method)</h3>
+            <h3 id="bleach-method">If you cannot boil: bleach disinfection (backup method)</h3>
             <p>Ordinary unscented household chlorine bleach can be an emergency backup. Check the label first.</p>
             <div class="measurement-card">
               <p>For clear water and bleach containing 5%–9% sodium hypochlorite:</p>

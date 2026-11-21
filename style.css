@@ -355,6 +355,10 @@ footer { display: grid; gap: var(--space-10); padding: var(--space-12) max(var(-
 .urgent-block h2 { margin-top: var(--space-3); font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; }
 .action-steps { list-style: none; margin-top: var(--space-8); display: grid; gap: var(--space-2); }
 .action-steps li { display: grid; grid-template-columns: 44px 1fr; align-items: start; gap: var(--space-3); padding: var(--space-4); border: 1px solid color-mix(in oklab, var(--color-dark-panel-text) 15%, transparent); border-radius: var(--radius-sm); }
+.action-steps li > div { min-width: 0; }
+.step-more { display: inline-block; padding-block: 10px; margin-top: var(--space-1); color: var(--color-dark-panel-text); font-size: var(--text-sm); font-weight: 700; line-height: 1.4; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.step-more i { font-style: normal; font-size: 1.3em; line-height: 1; margin-left: 4px; text-decoration: none; display: inline-block; }
+.step-more:hover { text-decoration-thickness: 2.5px; }
 .action-steps span { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid color-mix(in oklab, var(--color-dark-panel-text) 35%, transparent); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 700; }
 .critical-note { margin-top: var(--space-8); padding: var(--space-6); background: var(--color-surface-2); color: var(--color-text); border-radius: var(--radius-sm); }
 .critical-note strong { color: var(--color-warning); text-transform: uppercase; letter-spacing: .08em; font-size: var(--text-xs); }
