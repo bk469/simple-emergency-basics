@@ -217,21 +217,27 @@
       }
     });
     document.body.appendChild(link);
+    const dock = [link];
+    const jump = createJumpMenu();
+    if (jump) dock.push(jump);
     let ticking = false;
     let idleTimer = null;
-    let hasFocus = false;
+    let focusCount = 0;
+    function setShown(on) {
+      dock.forEach(function (el) { el.classList.toggle("is-visible", on); });
+    }
     function hideSoon() {
       if (idleTimer) clearTimeout(idleTimer);
       idleTimer = setTimeout(function () {
-        if (!hasFocus) link.classList.remove("is-visible");
+        if (!focusCount) setShown(false);
       }, 1500);
     }
     function updateVisibility() {
       if (window.scrollY > 320) {
-        link.classList.add("is-visible");
+        setShown(true);
         hideSoon();
       } else {
-        link.classList.remove("is-visible");
+        setShown(false);
         if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
       }
       ticking = false;
@@ -242,16 +248,101 @@
         ticking = true;
       }
     }, { passive: true });
-    link.addEventListener("focus", function () {
-      hasFocus = true;
-      link.classList.add("is-visible");
-      if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
-    });
-    link.addEventListener("blur", function () {
-      hasFocus = false;
-      updateVisibility();
+    dock.forEach(function (el) {
+      el.addEventListener("focus", function () {
+        focusCount += 1;
+        setShown(true);
+        if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+      });
+      el.addEventListener("blur", function () {
+        focusCount = Math.max(0, focusCount - 1);
+        updateVisibility();
+      });
     });
     updateVisibility();
+  }
+
+  function createJumpMenu() {
+    const toc = document.querySelector(".guide-toc");
+    const content = document.querySelector(".guide-content");
+    if (!toc || !content) return null;
+    const items = [];
+    const urgent = document.getElementById("right-now");
+    if (urgent) {
+      items.push({ id: "right-now", label: urgent.textContent.trim(), urgent: true });
+    }
+    toc.querySelectorAll("a").forEach(function (a) {
+      const id = (a.getAttribute("href") || "").replace("#", "");
+      if (id && document.getElementById(id)) {
+        items.push({ id: id, label: a.textContent.trim() });
+      }
+    });
+    if (items.length < 2) return null;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "floating-jump";
+    btn.setAttribute("aria-haspopup", "dialog");
+    btn.setAttribute("aria-label", "Jump to a section of this page");
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span>Sections</span>';
+
+    const dlg = document.createElement("dialog");
+    dlg.className = "jump-sheet";
+    dlg.setAttribute("aria-label", "Jump to a section");
+    let html = '<div class="jump-sheet-head"><strong>Jump to</strong>' +
+      '<button type="button" class="jump-sheet-close" aria-label="Close">&times;</button></div><nav><ul>';
+    items.forEach(function (it) {
+      html += '<li><a href="#' + it.id + '" data-jump="' + it.id + '"' +
+        (it.urgent ? ' class="is-urgent"' : '') + '>' +
+        it.label.replace(/&/g, "&amp;").replace(/</g, "&lt;") + '</a></li>';
+    });
+    html += '</ul></nav><button type="button" class="jump-sheet-top">&uarr; Back to top of page</button>';
+    dlg.innerHTML = html;
+    document.body.appendChild(dlg);
+    document.body.appendChild(btn);
+
+    function markCurrent() {
+      let current = items[0].id;
+      items.forEach(function (it) {
+        const el = document.getElementById(it.id);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.35) current = it.id;
+      });
+      dlg.querySelectorAll("a[data-jump]").forEach(function (a) {
+        const on = a.getAttribute("data-jump") === current;
+        a.classList.toggle("is-current", on);
+        if (on) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current");
+      });
+    }
+    btn.addEventListener("click", function () {
+      markCurrent();
+      if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+      const cur = dlg.querySelector("a.is-current");
+      if (cur) cur.scrollIntoView({ block: "center" });
+    });
+    function closeSheet() {
+      if (typeof dlg.close === "function") dlg.close(); else dlg.removeAttribute("open");
+    }
+    dlg.querySelector(".jump-sheet-close").addEventListener("click", closeSheet);
+    dlg.addEventListener("click", function (event) {
+      if (event.target === dlg) closeSheet();
+    });
+    dlg.querySelector(".jump-sheet-top").addEventListener("click", function () {
+      closeSheet();
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+    dlg.querySelectorAll("a[data-jump]").forEach(function (a) {
+      a.addEventListener("click", function (event) {
+        event.preventDefault();
+        const target = document.getElementById(a.getAttribute("data-jump"));
+        closeSheet();
+        if (target) {
+          target.scrollIntoView({ block: "start", behavior: "instant" });
+          try { window.history.replaceState(null, "", "#" + target.id); } catch (err) {}
+        }
+      });
+    });
+    return btn;
   }
 
   createFloatingBackButton();
