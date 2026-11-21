@@ -277,9 +277,16 @@ h1 span { display: block; color: var(--color-accent); }
 }
 .priorities-intro { padding: clamp(var(--space-12), 8vw, var(--space-24)) var(--space-4); }
 .priorities-intro .section-kicker { color: color-mix(in oklab, var(--color-dark-panel-text) 65%, transparent); }
-.priorities-intro p:last-child { margin-top: var(--space-6); color: color-mix(in oklab, var(--color-dark-panel-text) 70%, transparent); }
+.priorities-intro p:nth-of-type(2) { margin-top: var(--space-6); color: color-mix(in oklab, var(--color-dark-panel-text) 70%, transparent); }
 .priority-list { list-style: none; padding: var(--space-8) var(--space-4); background: color-mix(in oklab, var(--color-dark-panel) 90%, #000); }
 .priority-list li { display: grid; grid-template-columns: 38px 1fr; gap: var(--space-3); padding-block: var(--space-4); border-bottom: 1px solid color-mix(in oklab, var(--color-dark-panel-text) 16%, transparent); }
+.priority-hint { margin-top: var(--space-4); font-size: var(--text-sm); font-weight: 700; opacity: .85; }
+.priority-list li { display: block; padding-block: 0; }
+.priority-list li a { display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: var(--space-3); min-height: 64px; padding-block: var(--space-4); color: inherit; text-decoration: none; }
+.priority-list li a b { font-weight: inherit; }
+.priority-list li a i { font-style: normal; font-size: 1.6em; line-height: 1; color: color-mix(in oklab, var(--color-dark-panel-text) 55%, transparent); }
+.priority-list li a:hover, .priority-list li a:focus-visible { background: color-mix(in oklab, var(--color-dark-panel-text) 8%, transparent); }
+.priority-list li a:hover i { color: var(--color-dark-panel-text); }
 .priority-list span { color: color-mix(in oklab, var(--color-dark-panel-text) 45%, transparent); font-size: var(--text-xs); font-weight: 700; }
 
 .use-section { display: grid; gap: var(--space-12); padding-block: clamp(var(--space-20), 10vw, var(--space-32)); }
