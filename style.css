@@ -1174,7 +1174,8 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .priority-apartment { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-3); color: var(--color-dark-panel-text); font-weight: 700; font-size: var(--text-sm); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
 
 /* Apartment: top warning */
-.apt-warning { margin-top: var(--space-8); padding: var(--space-5); border: 2px solid var(--color-warning, #a4452c); border-radius: var(--radius-lg); background: color-mix(in oklab, var(--color-warning, #a4452c) 9%, var(--color-surface)); }
-.apt-warning strong { display: block; font-size: var(--text-lg); color: var(--color-text); line-height: 1.25; }
-.apt-warning p { margin-top: var(--space-3); color: var(--color-text); }
-.apt-warning a { color: var(--color-accent); font-weight: 700; text-underline-offset: 3px; }
+.apt-warning { margin-top: var(--space-8); padding: var(--space-5); border-radius: var(--radius-lg); background: #8f2a14; color: #fff; border-left: 10px solid #f2b705; box-shadow: 0 6px 18px rgba(143,42,20,.28); }
+.apt-warning strong { display: block; font-size: var(--text-xl, 1.5rem); color: #fff; line-height: 1.2; font-weight: 800; }
+.apt-warning p { margin-top: var(--space-3); color: #fff; }
+.apt-warning .apt-warning-btn { display: inline-block; margin-top: var(--space-4); padding: 12px 18px; background: #fff; color: #8f2a14; font-weight: 800; border-radius: 999px; text-decoration: none; min-height: 44px; }
+.apt-warning .apt-warning-btn:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
