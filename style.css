@@ -1169,3 +1169,6 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .hero-apartment { margin-top: var(--space-5); text-align: center; }
 .hero-apartment a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--color-accent); text-underline-offset: 4px; }
 .home-action-apartment { border-style: dashed; }
+
+/* Quick Start: apartment link on the dark panel */
+.priority-apartment { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-3); color: var(--color-dark-panel-text); font-weight: 700; font-size: var(--text-sm); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
