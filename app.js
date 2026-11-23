@@ -262,8 +262,8 @@
   }
 
   function createJumpMenu() {
-    const toc = document.querySelector(".guide-toc");
-    const content = document.querySelector(".guide-content");
+    const toc = document.querySelector(".guide-toc") || document.querySelector("[data-jump-source]");
+    const content = document.querySelector(".guide-content") || document.querySelector("[data-jump-source]");
     if (!toc || !content) return null;
     const items = [];
     const urgent = document.getElementById("right-now");
