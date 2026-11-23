@@ -235,7 +235,6 @@
     function updateVisibility() {
       if (window.scrollY > 320) {
         setShown(true);
-        hideSoon();
       } else {
         setShown(false);
         if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
