@@ -1179,3 +1179,9 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .apt-warning p { margin-top: var(--space-3); color: #fff; }
 .apt-warning .apt-warning-btn { display: inline-block; margin-top: var(--space-4); padding: 12px 18px; background: #fff; color: #8f2a14; font-weight: 800; border-radius: 999px; text-decoration: none; min-height: 44px; }
 .apt-warning .apt-warning-btn:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+
+/* Apartment button on home page: same shape as the other two, blue */
+.home-action-apartment { background: #1f4e79; border-color: #1f4e79; color: #fff; width: 100%; }
+.home-action-apartment:hover { background: #163a5c; border-color: #163a5c; }
+[data-theme="dark"] .home-action-apartment { background: #9cc3e6; border-color: #9cc3e6; color: #10243a; }
+[data-theme="dark"] .home-action-apartment:hover { background: #b6d3ee; border-color: #b6d3ee; }
