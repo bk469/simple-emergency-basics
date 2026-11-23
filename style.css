@@ -1124,3 +1124,11 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
   color: var(--color-text); font-weight: 600; text-decoration: none;
 }
 .subpage-bottom-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+/* Topics page: one-line descriptions */
+.topic-label { display: flex; flex-direction: column; gap: 2px; }
+.topic-name { font-weight: 700; }
+.topic-desc { font-weight: 400; font-size: var(--text-sm); color: var(--color-muted); line-height: 1.35; }
+
+/* Footer: About link */
+.footer-about { min-height: 44px; display: inline-flex; align-items: center; color: var(--color-accent); font-size: var(--text-sm); font-weight: 700; text-underline-offset: 4px; }
