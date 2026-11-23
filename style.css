@@ -1172,3 +1172,9 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 
 /* Quick Start: apartment link on the dark panel */
 .priority-apartment { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-3); color: var(--color-dark-panel-text); font-weight: 700; font-size: var(--text-sm); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+
+/* Apartment: top warning */
+.apt-warning { margin-top: var(--space-8); padding: var(--space-5); border: 2px solid var(--color-warning, #a4452c); border-radius: var(--radius-lg); background: color-mix(in oklab, var(--color-warning, #a4452c) 9%, var(--color-surface)); }
+.apt-warning strong { display: block; font-size: var(--text-lg); color: var(--color-text); line-height: 1.25; }
+.apt-warning p { margin-top: var(--space-3); color: var(--color-text); }
+.apt-warning a { color: var(--color-accent); font-weight: 700; text-underline-offset: 3px; }
