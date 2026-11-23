@@ -1215,3 +1215,7 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 [data-theme="dark"] .hn-guide { color: #10201a; }
 .hn-ready { display: flex; align-items: center; justify-content: center; min-height: 56px; margin-top: var(--space-6); color: var(--color-accent); font-weight: 700; font-size: 1.1rem; text-underline-offset: 4px; text-decoration: underline; }
 @media (min-width: 900px) { .help-now-grid.hn-grid { grid-template-columns: none; } }
+
+/* Print: hide on-screen navigation helpers that mean nothing on paper */
+@media print { .section-menu, .step-more, .help-now-cta { display: none !important; } }
+@media print { .guide-content > section:last-child { padding-bottom: 0; } .guide-layout { padding-bottom: 0; } }
