@@ -610,3 +610,20 @@
       : "Food guide";
   });
 })();
+
+/* Help Now: open one card at a time and bring it to the top of the screen */
+(function () {
+  var tiles = document.querySelectorAll('.hn-tile');
+  if (!tiles.length) return;
+  tiles.forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (!d.open) return;
+      tiles.forEach(function (o) { if (o !== d) o.open = false; });
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setTimeout(function () {
+        var top = d.getBoundingClientRect().top + window.scrollY - 76;
+        window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+      }, 60);
+    });
+  });
+})();

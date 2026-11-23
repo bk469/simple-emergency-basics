@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,600&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="./style.css?v=20260924-apt10">
-  <script src="./app.js?v=20260924-apt10" defer></script>
+  <link rel="stylesheet" href="./style.css?v=20260924-hn2">
+  <script src="./app.js?v=20260924-hn2" defer></script>
 
   <!-- Shared public and install metadata -->
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" data-site-metadata>
@@ -77,114 +77,64 @@
   <main id="main" class="subpage-main">
     <a class="back-link header-back subpage-back" href="./index.html">&larr; Back to Home</a>
 
-<section class="help-now-section" id="help-now" aria-labelledby="help-now-title">
-      <div class="help-now-intro">
-        <p class="section-kicker">Fast emergency help</p>
-        <h2 id="help-now-title">What is happening right now?</h2>
-        <p>Choose the problem that needs attention. Start with these immediate actions, then open the full guide if you need more detail.</p>
-      </div>
-
-      <div class="help-now-grid">
-        <details class="emergency-summary">
-          <summary><span>No safe drinking water</span></summary>
+<section class="help-now-section hn" id="help-now" aria-labelledby="help-now-title">
+      <a class="hn-911" href="tel:911">
+        <span class="hn-911-big">Life in danger? Call 911</span>
+        <span class="hn-911-small">Call first. Read after.</span>
+      </a>
+      <h2 id="help-now-title" class="hn-title">What is happening? Tap one.</h2>
+      <div class="help-now-grid hn-grid">
+        <details class="emergency-summary hn-tile hn-urgent" name="help-now" id="hn-hurt">
+          <summary><span>Someone is hurt or very sick</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Use stored or bottled drinking water first.</li>
-              <li>If water may contain germs, boil it or use an approved disinfection method.</li>
-              <li>If fuel, chemicals, or toxins may be present, find another water source.</li>
-            </ol>
-            <p class="quick-warning"><strong>Do not:</strong> Assume clear water is safe to drink.</p>
-            <a class="quick-guide-link" href="./water.html#right-now">Open the water guide <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span><b>Call 911</b> if a life is in danger.</span></li><li><span>Heavy bleeding: press firmly and steadily with a clean cloth.</span></li><li><span>Not responding and not breathing normally: start CPR. Use an AED if you have one.</span></li></ol>
+            <p class="quick-warning"><strong>Do not</strong> stop to keep reading. Get help first.</p>
+            <a class="hn-guide" href="./first-aid.html#emergency-now">Open the first aid guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
-
-        <details class="emergency-summary">
-          <summary><span>No heat or the home is too cold</span></summary>
+        <details class="emergency-summary hn-tile" name="help-now" id="hn-water">
+          <summary><span>No safe water to drink</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Put on dry layers, hats, gloves, and blankets before trying to heat the whole building.</li>
-              <li>Move everyone into one smaller, safe room or area.</li>
-              <li>Use only heating equipment approved for that location, with working smoke and carbon-monoxide alarms.</li>
-            </ol>
-            <p class="quick-warning"><strong>Never:</strong> Run a generator, grill, or other outdoor combustion equipment indoors.</p>
-            <a class="quick-guide-link" href="./fire.html#heat-now">Open the fire and heat guide <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span>Drink stored or bottled water first.</span></li><li><span>If the water might have germs, boil it or treat it with an approved method.</span></li><li><span>If it might have fuel or chemicals in it, find another source.</span></li></ol>
+            <p class="quick-warning"><strong>Do not</strong> assume clear water is safe to drink.</p>
+            <a class="hn-guide" href="./water.html#right-now">Open the water guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
-
-        <details class="emergency-summary">
-          <summary><span>Food is limited</span></summary>
-          <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Use safe food that will spoil first before opening long-term supplies.</li>
-              <li>Protect food from contaminated water, chemicals, pests, and moisture.</li>
-              <li>Cook simply, conserve fuel and water, and distribute food fairly.</li>
-            </ol>
-            <p class="quick-warning"><strong>Do not:</strong> Eat food that smells wrong, looks unsafe, or may have been contaminated.</p>
-            <a class="quick-guide-link" href="./food.html#food-now">Open the food guide <span aria-hidden="true">→</span></a>
-          </div>
-        </details>
-
-        <details class="emergency-summary">
+        <details class="emergency-summary hn-tile" name="help-now" id="hn-toilet">
           <summary><span>The toilet will not work</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Determine whether only the water supply failed or the sewer, septic, or drain system failed.</li>
-              <li>If the waste system failed, stop flushing and set up a lined emergency toilet.</li>
-              <li>Use absorbent material, seal waste, and keep it away from people, food, and water.</li>
-            </ol>
-            <p class="quick-warning"><strong>Important:</strong> Wash hands after toilet use or handling waste.</p>
-            <a class="quick-guide-link" href="./sanitation.html#toilet-failure">Open the sanitation guide <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span>Find out: is only the water off, or are the drains or sewer broken?</span></li><li><span>If the drains are broken, stop flushing. Use a bucket lined with a bag.</span></li><li><span>Add absorbent material, seal the bag, and keep it away from people, food and water.</span></li></ol>
+            <p class="quick-warning"><strong>Important:</strong> Wash your hands after using the toilet or handling waste.</p>
+            <a class="hn-guide" href="./sanitation.html#toilet-failure">Open the sanitation guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
-
-        <details class="emergency-summary">
-          <summary><span>Someone is hurt or seriously ill</span></summary>
+        <details class="emergency-summary hn-tile" name="help-now" id="hn-cold">
+          <summary><span>No heat, or too cold</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Call 911 or local emergency services for any immediately life-threatening condition.</li>
-              <li>For severe bleeding, apply firm, steady pressure with clean gauze or cloth.</li>
-              <li>If the person is unresponsive and not breathing normally, begin CPR and use an AED according to your training.</li>
-            </ol>
-            <p class="quick-warning"><strong>Do not:</strong> Delay emergency care to continue reading.</p>
-            <a class="quick-guide-link" href="./first-aid.html#emergency-now">Open the first aid guide <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span>Put on dry layers, a hat and gloves. Wrap up in blankets.</span></li><li><span>Move everyone into one small room.</span></li><li><span>Use only heaters made for indoor use. Make sure smoke and carbon monoxide alarms work.</span></li></ol>
+            <p class="quick-warning"><strong>Never</strong> run a generator, grill or camp stove indoors.</p>
+            <a class="hn-guide" href="./fire.html#heat-now">Open the fire and heat guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
-
-        <details class="emergency-summary">
+        <details class="emergency-summary hn-tile" name="help-now" id="hn-power">
           <summary><span>The power is out</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Do this first</p>
-            <ol>
-              <li>Use a flashlight or headlamp before moving through dark rooms.</li>
-              <li>Check medical devices, immediate hazards, official alerts, and indoor temperature.</li>
-              <li>Keep refrigerator doors closed and begin conserving phone and battery power.</li>
-            </ol>
-            <p class="quick-warning"><strong>Never:</strong> Operate a generator inside a house, garage, basement, or near doors and windows.</p>
-            <a class="quick-guide-link" href="./light-power.html#first-actions">Open the power and communication guide <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span>Use a flashlight or headlamp before you walk through dark rooms.</span></li><li><span>Check medical devices, official alerts and the temperature indoors.</span></li><li><span>Keep the fridge door shut. Save your phone battery.</span></li></ol>
+            <p class="quick-warning"><strong>Never</strong> run a generator inside a house, garage or basement, or near doors and windows.</p>
+            <a class="hn-guide" href="./light-power.html#first-actions">Open the power guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
-
-        <details class="emergency-summary">
-          <summary><span>I need the essential supplies</span></summary>
+        <details class="emergency-summary hn-tile" name="help-now" id="hn-food">
+          <summary><span>Food is running low</span></summary>
           <div class="emergency-summary-body">
-            <p class="quick-label">Start here</p>
-            <ol>
-              <li>Secure drinking water, essential prescriptions, and necessary medical equipment.</li>
-              <li>Gather shelf-stable food, flashlights, batteries, charging power, and a radio.</li>
-              <li>Add first-aid, sanitation, warmth, cooking, and basic repair supplies.</li>
-            </ol>
-            <p class="quick-warning"><strong>Remember:</strong> Keep supplies together, labeled, and familiar to everyone who may need them.</p>
-            <a class="quick-guide-link" href="./topics.html">Explore the 12 essential skills <span aria-hidden="true">→</span></a>
+            <ol class="hn-steps"><li><span>Eat the food that will spoil first.</span></li><li><span>Keep food away from dirty water, chemicals, pests and damp.</span></li><li><span>Cook simply, save fuel and water, and share food fairly.</span></li></ol>
+            <p class="quick-warning"><strong>Do not</strong> eat food that smells wrong or looks unsafe.</p>
+            <a class="hn-guide" href="./food.html#food-now">Open the food guide <span aria-hidden="true">&rarr;</span></a>
           </div>
         </details>
       </div>
-
-      <p class="help-now-note"><strong>Immediate danger:</strong> Call 911 or your local emergency service when available. This quick guide does not replace professional emergency instructions.</p>
+      <a class="hn-ready" href="./topics.html">Not an emergency right now? Get ready <span aria-hidden="true">&rsaquo;</span></a>
+      <p class="help-now-note"><strong>Immediate danger:</strong> Call 911 or your local emergency service. This quick guide does not replace what emergency workers tell you.</p>
     </section>
 
     <div class="subpage-bottom-nav">
