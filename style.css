@@ -1132,3 +1132,8 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 
 /* Footer: About link */
 .footer-about { min-height: 44px; display: inline-flex; align-items: center; color: var(--color-accent); font-size: var(--text-sm); font-weight: 700; text-underline-offset: 4px; }
+
+/* Phone: leave room below the footer so the floating buttons never cover the disclaimer or links */
+@media (max-width: 699px) {
+  body:has(.floating-back) footer { padding-bottom: calc(var(--space-8, 2rem) + 80px); }
+}
