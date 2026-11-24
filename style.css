@@ -1235,3 +1235,6 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 .sign-list li { position: relative; padding: 6px 0 6px var(--space-5); line-height: 1.45; }
 .sign-list li::before { content: ""; position: absolute; left: 2px; top: 1em; width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary, #8a3b2f); }
 h3 + .critical-line { margin-top: var(--space-3); }
+.sign-list.sign-cols { columns: 2; column-gap: var(--space-6); } .sign-list.sign-cols li { break-inside: avoid; }
+.sign-list li { margin: 0; }
+.sign-list.sign-cols { columns: auto; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); column-gap: var(--space-6); } .sign-list.sign-cols li { margin: 0 !important; }
