@@ -1219,3 +1219,13 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 /* Print: hide on-screen navigation helpers that mean nothing on paper */
 @media print { .section-menu, .step-more, .help-now-cta { display: none !important; } }
 @media print { .guide-content > section:last-child { padding-bottom: 0; } .guide-layout { padding-bottom: 0; } }
+
+/* Review: warning-sign lists read as a plain list, not tappable boxes */
+.emergency-grid { display: block; margin-top: var(--space-5); padding: 0; columns: 2 14rem; column-gap: var(--space-6); }
+.emergency-grid div { position: relative; padding: var(--space-1) 0 var(--space-1) var(--space-5); border: 0; border-radius: 0; font-weight: 600; break-inside: avoid; line-height: 1.35; }
+.emergency-grid div::before { content: ""; position: absolute; left: 2px; top: .6em; width: 8px; height: 8px; border-radius: 50%; background: var(--color-warning, #e0a050); }
+.urgent-call { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: var(--space-5); padding: 16px 20px; border-radius: var(--radius-full); background: #b3261e; color: #fff; font-weight: 800; font-size: var(--text-lg); text-decoration: none; }
+.urgent-call:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+/* Keep the floating Back / Sections buttons from covering the end of a section */
+@media (max-width: 699px) { body { padding-bottom: 88px; } .urgent-block { padding-bottom: calc(var(--space-12) + 40px); } }
+@media print { .urgent-call { display: none !important; } }
