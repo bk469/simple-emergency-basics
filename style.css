@@ -1229,3 +1229,9 @@ blockquote { margin-block: var(--space-8); padding: var(--space-6) 0; color: var
 /* Keep the floating Back / Sections buttons from covering the end of a section */
 @media (max-width: 699px) { body { padding-bottom: 88px; } .urgent-block { padding-bottom: calc(var(--space-12) + 40px); } }
 @media print { .urgent-call { display: none !important; } }
+
+/* Review: symptom lists are plain dotted lists, not checkboxes */
+.sign-list { list-style: none; margin: var(--space-3) 0 var(--space-6); padding: 0; }
+.sign-list li { position: relative; padding: 6px 0 6px var(--space-5); line-height: 1.45; }
+.sign-list li::before { content: ""; position: absolute; left: 2px; top: 1em; width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary, #8a3b2f); }
+h3 + .critical-line { margin-top: var(--space-3); }
