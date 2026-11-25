@@ -204,7 +204,9 @@
   function createFloatingBackButton() {
     const link = document.createElement("button");
     link.type = "button";
-    link.className = "floating-back";
+    const isHome = /\/(index\.html)?$/.test(window.location.pathname);
+    if (isHome) return;
+    link.className = "floating-back always";
     link.setAttribute("aria-label", "Go back to the previous page");
     link.innerHTML =
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>' +
