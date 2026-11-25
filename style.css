@@ -1238,3 +1238,19 @@ h3 + .critical-line { margin-top: var(--space-3); }
 .sign-list.sign-cols { columns: 2; column-gap: var(--space-6); } .sign-list.sign-cols li { break-inside: avoid; }
 .sign-list li { margin: 0; }
 .sign-list.sign-cols { columns: auto; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(3, auto); column-gap: var(--space-6); } .sign-list.sign-cols li { margin: 0 !important; }
+
+/* Dark-mode readability: light buttons get dark text */
+[data-theme="dark"] .home-action:not(.home-action-deep):not(.home-action-apartment),
+[data-theme="dark"] .home-action:not(.home-action-deep):not(.home-action-apartment) .home-action-label,
+[data-theme="dark"] .home-action:not(.home-action-deep):not(.home-action-apartment) .home-action-sub,
+[data-theme="dark"] .home-action:not(.home-action-deep):not(.home-action-apartment) .home-action-chevron,
+[data-theme="dark"] .button.primary,
+[data-theme="dark"] .floating-jump,
+[data-theme="dark"] .simple-return,
+[data-theme="dark"] .js-buttons a.pri { color: #111a14 !important; }
+[data-theme="dark"] .home-action-emergency { background: #f0b3a0 !important; border-color: #f0b3a0 !important; }
+[data-theme="dark"] .priority-list { background: var(--color-dark-panel); }
+[data-theme="dark"] .priority-list span,
+[data-theme="dark"] .priority-list li a i { color: #3c4a40; }
+/* Keep the floating buttons from hiding the last lines of a page */
+main { padding-bottom: 72px; }
