@@ -26,6 +26,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Simple Emergency & Survival Basics">
   <meta name="twitter:image" content="./social-card.png">
+<style>
+.home-action-text{display:flex;flex-direction:column;gap:2px;text-align:left}
+.home-action-sub{display:block !important;font-size:.95rem;font-weight:500;opacity:.92;text-transform:none;letter-spacing:0}
+.hero-actions .home-action{min-height:84px}
+.hero-actions .home-action-label{font-size:1.25rem}
+.home-action-deep{background:var(--color-surface);color:var(--color-accent);border:2px solid var(--color-accent)}
+.home-action-deep .home-action-label,.home-action-deep .home-action-sub{color:var(--color-accent)}
+.hero-simple{display:block !important}
+.hero-simple .hero-copy{margin:0 auto !important;max-width:640px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero-simple .hero-actions{width:100%;max-width:520px;margin:20px auto 0 !important;display:flex;flex-direction:column;gap:14px}
+.home-apt-link{width:100%;text-align:center;margin:14px 0 0;font-weight:600}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -82,19 +94,20 @@
         <p class="hero-subtitle">The time to prepare is <strong>NOW</strong></p>
 
         <div class="hero-actions">
-          <a class="home-action hero-cta" href="./prepare.html">
-            <span class="home-action-text"><span class="home-action-label">Start Here</span></span>
-            <span class="home-action-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
-          </a>
           <a class="home-action home-action-emergency hero-cta" href="./help-now.html">
-            <span class="home-action-text"><span class="home-action-label">I Need Help Now</span></span>
+            <span class="home-action-text"><span class="home-action-label">I Need Help Now</span><span class="home-action-sub">Emergency happening? Start here.</span></span>
             <span class="home-action-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="home-action home-action-apartment hero-cta" href="./apartment.html">
-            <span class="home-action-text"><span class="home-action-label">Live in an Apartment?</span></span>
+          <a class="home-action hero-cta" href="./just-start.html">
+            <span class="home-action-text"><span class="home-action-label">Simple Start</span><span class="home-action-sub">3 basics and one small step a week</span></span>
+            <span class="home-action-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="home-action home-action-deep hero-cta" href="./prepare.html">
+            <span class="home-action-text"><span class="home-action-label">Deep Dive</span><span class="home-action-sub">The full guide, all 12 topics</span></span>
             <span class="home-action-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
           </a>
         </div>
+        <p class="home-apt-link"><a href="./apartment.html">Live in an apartment? Tap here &rsaquo;</a></p>
 
         <svg class="home-illustration" viewBox="0 0 640 160" role="img" aria-label="Illustration of pine trees and mountains at sunrise">
           <circle cx="320" cy="104" r="50" fill="var(--home-sun)"/>
