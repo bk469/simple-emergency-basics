@@ -212,6 +212,7 @@
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>' +
       "<span>Back</span>";
     link.addEventListener("click", function () {
+      if (window.__jumpReturn) { window.__jumpReturn(); return; }
       if (document.referrer && window.history.length > 1) {
         window.history.back();
       } else {
@@ -649,4 +650,33 @@
       "@media print{.simple-return{display:none !important}}";
     document.head.appendChild(st);
   } catch (e) {}
+})();
+
+// In-page "More detail" jumps: Back returns to the spot the reader tapped, not off the page.
+(function () {
+  var saved = null;
+  function labelAll(text) {
+    document.querySelectorAll(".floating-back span, .simple-return span").forEach(function (s) {
+      if (!s.dataset.orig) s.dataset.orig = s.textContent;
+      s.textContent = text || s.dataset.orig;
+    });
+  }
+  window.__jumpReturn = null;
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || a.closest(".jump-sheet, .guide-toc, .mobile-toc, .simple-menu")) return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id || !document.getElementById(id)) return;
+    saved = window.scrollY;
+    labelAll("Back up");
+    window.__jumpReturn = function () {
+      var y = saved; saved = null; window.__jumpReturn = null; labelAll(null);
+      try { window.history.replaceState(null, "", window.location.pathname + window.location.search); } catch (err) {}
+      window.scrollTo({ top: y, behavior: "smooth" });
+    };
+  }, true);
+  document.addEventListener("click", function (e) {
+    var r = e.target.closest && e.target.closest(".simple-return");
+    if (r && window.__jumpReturn) { e.preventDefault(); window.__jumpReturn(); }
+  }, true);
 })();
