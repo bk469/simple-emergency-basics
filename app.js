@@ -627,3 +627,24 @@
     });
   });
 })();
+
+// Simple Start return button: shown on any page opened from a Simple Start "Learn more" link.
+(function () {
+  try {
+    var fromSimple = /[?&]from=simple\b/.test(window.location.search);
+    if (!fromSimple) return;
+    var b = document.createElement("a");
+    b.className = "simple-return";
+    b.href = "./just-start.html#weeks";
+    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span>Back to Simple Start</span>';
+    document.body.appendChild(b);
+    document.body.classList.add("has-simple-return");
+    var st = document.createElement("style");
+    st.textContent = ".simple-return{position:fixed;left:16px;bottom:16px;z-index:60;display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--color-accent);color:var(--color-bg);font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 4px 14px rgb(0 0 0 / .25)}" +
+      ".simple-return svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}" +
+      ".has-simple-return .floating-back{display:none !important}" +
+      ".has-simple-return footer{padding-bottom:110px}" +
+      "@media print{.simple-return{display:none !important}}";
+    document.head.appendChild(st);
+  } catch (e) {}
+})();
