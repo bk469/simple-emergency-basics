@@ -80,12 +80,11 @@
 <section class="section-narrow msg-page">
   <h1>Leave a message</h1>
   <p>Tell us what you think of the guide. What helped? What was hard to follow? Short notes are welcome.</p>
-  <form id="msg-form" action="https://formsubmit.co/easyprep@yahoo.com" method="POST">
-    <input type="hidden" name="_subject" value="New message from Emergency Basics">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://bk469.github.io/simple-emergency-basics/message.html?sent=1">
-    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+  <form id="msg-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="df006381-2903-4b06-b59e-44c1bea41ed1">
+    <input type="hidden" name="subject" value="New message from Emergency Basics">
+    <input type="hidden" name="from_name" value="Emergency Basics guide">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <label for="m-msg">Your message</label>
     <textarea id="m-msg" name="message" rows="6" required></textarea>
     <label for="m-name">Your name <span>(optional)</span></label>
@@ -108,8 +107,13 @@
 .msg-note{opacity:.8;margin-top:1rem}
 </style>
 <script>
-if(location.search.indexOf('sent=1')>-1){var st=document.getElementById('msg-status');st.textContent='Thank you. Your message was sent.';st.scrollIntoView({block:'center'});}
-document.getElementById('msg-form').addEventListener('submit',function(){var b=this.querySelector('button');b.textContent='Sending...';});
+document.getElementById('msg-form').addEventListener('submit',async e=>{
+ e.preventDefault();const f=e.target,st=document.getElementById('msg-status'),b=f.querySelector('button');
+ b.disabled=true;st.textContent='Sending...';
+ try{const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});const j=await r.json();
+  if(j.success){f.reset();st.textContent='Thank you. Your message was sent.';}else{st.textContent='Sorry, it did not send. Please try again.';}
+ }catch(x){st.textContent='Sorry, it did not send. Please check your connection and try again.';}
+ b.disabled=false;});
 </script>
   </main>
   </main>
